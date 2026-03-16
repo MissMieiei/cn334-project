@@ -68,6 +68,7 @@ export default function RestaurantPage() {
                         name={restaurant.name}
                         description={restaurant.description}
                         queue={restaurant.queue}
+                        id={restaurant.id}
                     />
                 ))}
             </div>
