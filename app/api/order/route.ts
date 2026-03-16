@@ -11,7 +11,7 @@ export async function GET(req: Request) {
     total: searchParams.get("total"),
   }
 
-  await fetch("https://httpbin.org/post", {
+  const res = await fetch("https://httpbin.org/post", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -19,5 +19,14 @@ export async function GET(req: Request) {
     body: JSON.stringify(order)
   })
 
-  return NextResponse.redirect(new URL("/Queue", req.url))
+  const data = await res.json()
+  console.log(data)
+
+  // return NextResponse.redirect(new URL("/Queue", req.url))
+
+  return NextResponse.json({
+    success: true,
+    message: "Order post success",
+    order
+  })
 }
