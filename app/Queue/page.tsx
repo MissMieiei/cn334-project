@@ -2,8 +2,8 @@
 
 import { Suspense, useState, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
-import RestaurantHeader from "@/app/components/RestaurantHeader"
-import QueueStack from "@/app/components/QueueStack"
+import RestaurantHeader from "@/app/canteens/components/RestaurantHeader"
+import QueueStack from "@/app/canteens/components/QueueStack"
 import { QueueOrder } from "@/types"
 
 type CardStatus = "waiting" | "cooking" | "ready"
