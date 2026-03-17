@@ -40,12 +40,31 @@ export default function AdminPage() {
   };
 
   //เปลี่ยนสถานะ
-  const handleStatusChange = (id: string, newStatus: Status) => {
+  const handleStatusChange = async (id: string, newStatus: Status) => {
     setMyOrders((prev) =>
       prev.map((o) =>
         o.id === id ? { ...o, status: newStatus } : o
       )
     );
+
+    try {
+      const res = await fetch("https://httpbin.org/post", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          orderId: id,
+          status: newStatus,
+        }),
+      });
+
+      if (res.ok) {
+        alert(`ส่ง order ${id} เรียบร้อยแล้ว`);
+      } else {
+        alert(`order ${id} ไม่สำเร็จ`);
+      }
+    } catch (err) {
+      alert(`error: ${(err as Error).message}`);
+    }
   };
 
   return (
@@ -68,7 +87,7 @@ export default function AdminPage() {
           {myOrders.map((o) => (
             <div
               key={o.id}
-              className="grid grid-cols-[80px_1fr_80px_150px] px-5 py-4 border-b items-center text-gray-700"
+              className="grid grid-cols-[80px_1fr_80px_150px] px-5 py-4 border-b border-gray-200 items-center text-gray-700"
             >
               <span>{o.id}</span>
               <span>{getMenuName(o.menuId)}</span>
