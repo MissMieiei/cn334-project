@@ -1,43 +1,28 @@
-"use client"
+"use client";
 
-import { useRouter } from "next/navigation"
-import CanteenCard from "./components/CanteenCard"
-import { canteens } from "../data/mockData"
+import { useRouter } from "next/navigation";
 
-
-export default function HomePage() {
-
-  const router = useRouter()
-  const selectCanteen = (id: string) => {
-    router.push(`/restaurants?canteen=${id}`)
-  }
+export default function Home() {
+  const router = useRouter();
 
   return (
-    <main className="min-h-screen bg-[#9F2436] flex flex-col">
+    <div className="h-screen flex flex-col items-center justify-center gap-6">
+      
+      <h1 className="text-2xl font-semibold">Select Role</h1>
+      <button
+        onClick={() => router.push("/canteens")}
+        className="px-6 py-3 bg-gray-200 rounded-xl"
+      >
+        เข้าใช้งาน (User)
+      </button>
 
-      {/* หัว */}
-      <div className="h-56 flex items-center justify-center">
-        <h1 className="text-white text-3xl font-semibold">
-          WELCOME
-        </h1>
-      </div>
+      <button
+        onClick={() => router.push("/login")}
+        className="px-6 py-3 bg-red-700 text-white rounded-xl"
+      >
+        สำหรับร้านค้า (Admin)
+      </button>
 
-      <div className="bg-[#F0EEE9] rounded-t-3xl p-6 flex-1">
-        <h2 className="text-center text-[#9F2436] mb-6 font-semibold">
-          Choose the canteen
-        </h2>
-
-        <div className="space-y-5">
-
-          {canteens.map((canteen) => (
-            <CanteenCard
-              key={canteen.id}
-              name={canteen.name}
-              onClick={() => selectCanteen(canteen.id)}
-            />
-          ))}
-        </div>
-      </div>
-    </main>
-  )
+    </div>
+  );
 }
