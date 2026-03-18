@@ -1,22 +1,15 @@
 import { NextResponse } from "next/server"
 
-export async function GET(req: Request) {
+export async function POST(req: Request) {
+  const body = await req.json()
 
-  const { searchParams } = new URL(req.url)
-
-  const order = {
-    menuId: searchParams.get("menuId"),
-    qty: searchParams.get("qty"),
-    note: searchParams.get("note"),
-    total: searchParams.get("total"),
-  }
 
   const res = await fetch("https://httpbin.org/post", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(order)
+    body: JSON.stringify(body)
   })
 
   const data = await res.json()
@@ -24,9 +17,8 @@ export async function GET(req: Request) {
 
   // return NextResponse.redirect(new URL("/Queue", req.url))
 
-  return NextResponse.json({
+return NextResponse.json({
     success: true,
-    message: "Order post success",
-    order
+    order: body
   })
 }

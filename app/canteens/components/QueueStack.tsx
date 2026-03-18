@@ -1,10 +1,5 @@
 "use client"
 
-// ============================================================
-// app/components/QueueStack.tsx (คนที่ 3 - Frontend)
-// การ์ดซ้อนกัน ไล่สีเฉดแดง เอียง 3D นิดๆ
-// ============================================================
-
 interface QueueStackProps {
   queueNumber: number
   onTap: () => void
