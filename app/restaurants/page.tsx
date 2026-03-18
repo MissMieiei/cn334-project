@@ -52,7 +52,7 @@ export default function RestaurantPage() {
                         className={`px-4 py-2 rounded-full text-sm whitespace-nowrap
         ${selectedType === type
                                 ? "bg-[#9F2436] text-white"
-                                : "bg-gray-200"
+                                : "bg-gray-200 text-black"
                             }
       `}>
                         {type}
@@ -60,7 +60,7 @@ export default function RestaurantPage() {
                 ))}
             </div>
 
-            <h2 className="mb-4 px-4 font-medium">รายการร้านอาหาร</h2>
+            <h2 className="mb-4 px-4 font-medium text-black">รายการร้านอาหาร</h2>
             <div className="space-y-6 px-4">
                 {filtered.map((restaurant) => (
                     <RestaurantCard
