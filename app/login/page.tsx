@@ -17,7 +17,7 @@ export default function LoginPage() {
     );
 
     if (found) {
-      // 🔥 จำว่า login เป็นร้านไหน
+      // จำว่า login เป็นร้านไหน
       localStorage.setItem("role", "admin");
       localStorage.setItem("restaurantId", found.restaurantId);
 
