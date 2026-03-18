@@ -1,10 +1,8 @@
-<<<<<<< Updated upstream
-=======
 "use client"
 
 import { Suspense, useState, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
-import RestaurantHeader from "@/app/components/RestaurantHeader"
+import RestaurantHeader from "@/app/canteens/components/RestaurantHeader"
 import QueueStack from "@/app/canteens/components/QueueStack"
 import { QueueOrder } from "@/types"
 
@@ -73,6 +71,7 @@ function QueueContent() {
 
   const bgColor = cardStatus === "ready" ? "bg-[#701A27]" : "bg-[#ebebeb]"
 
+export default function QueuePage() {
   return (
     <main className={`min-h-screen flex flex-col transition-colors duration-700 ${bgColor}`}>
 
@@ -121,13 +120,10 @@ function QueueContent() {
   )
 }
 
->>>>>>> Stashed changes
 export default function QueuePage() {
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <h1 className="text-3xl font-bold text-green-600">
-        Order Success 
-      </h1>
-    </main>
+    <Suspense fallback={<div className="min-h-screen bg-[#ebebeb]" />}>
+      <QueueContent />
+    </Suspense>
   )
 }

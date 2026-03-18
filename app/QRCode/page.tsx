@@ -14,22 +14,11 @@ export default function QRPage() {
   const qty = params.get("qty")
   const note = params.get("note")
   const total = params.get("total")
-
-  const [success, setSuccess] = useState(false)
+  const ResId = params.get("res_id")
+  const canteenId = params.get("canteen")
 
   const qrUrl =
-    `http://localhost:3000/confirm?menuId=${menuId}&qty=${qty}&note=${note}&total=${total}`
-
-  async function handleOrder() {
-    const res = await fetch(qrUrl)
-    const data = await res.json()
-
-    if (data.success) {
-      setSuccess(true)
-
-      setTimeout(() => {router.push("/Queue")}, 2000)
-    }
-  }
+    `http://localhost:3000/confirm?canteen=${canteenId}&res_id=${ResId}&menuId=${menuId}&qty=${qty}&note=${note}&total=${total}}`
 
   return (
     <main className="min-h-screen pt-30 justify-center bg-[#F0EEE9] text-[#464646] p-6">

@@ -77,3 +77,56 @@ export const menus: Menu[] = [
     restaurantId: "r1"
   }
 ]
+
+export type OrderStatus = "รอ" | "กำลังทำ" | "เสร็จแล้ว";
+
+export interface Order {
+  id: string;
+  menuId: string;
+  quantity: number;
+  status: OrderStatus;
+  restaurantId: string;
+}
+
+export const orders: Order[] = [
+  {
+    id: "Q1",
+    menuId: "m1",
+    quantity: 1,
+    status: "กำลังทำ",
+    restaurantId: "r1",
+  },
+  {
+    id: "Q2",
+    menuId: "m2",
+    quantity: 2,
+    status: "รอ",
+    restaurantId: "r1",
+  },
+  {
+    id: "Q3",
+    menuId: "m3",
+    quantity: 1,
+    status: "รอ",
+    restaurantId: "r1",
+  },
+];
+
+export interface AdminAccount {
+  username: string;
+  password: string;
+  restaurantId: string;
+}
+
+export const adminAccounts: AdminAccount[] = [
+  {
+    username: "r1",
+    password: "1234",
+    restaurantId: "r1",
+  },
+  {
+    username: "r2",
+    password: "1234",
+    restaurantId: "r2",
+  },
+];

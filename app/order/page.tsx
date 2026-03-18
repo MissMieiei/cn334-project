@@ -8,6 +8,8 @@ export default function OrderPage() {
 
     const params = useSearchParams()
     const menuId = params.get("menu")
+    const ResId = params.get("res_id")
+    const canteenId = params.get("canteen")
     const router = useRouter()
 
     const menu = menus.find((m) => m.id === menuId)
@@ -95,7 +97,7 @@ export default function OrderPage() {
 
             <button
                 onClick={() => router.push(
-                    `/QRCode?menuId=${menu?.id}&qty=${qty}&note=${note}&total=${total}`
+                    `/QRCode?canteen=${canteenId}&res_id=${ResId}&menuId=${menu?.id}&qty=${qty}&note=${note}&total=${total}`
                 )}
                 className="w-full bg-[#D6D1C8] text-[#464646] py-4 rounded-full font-medium">
                 ORDER

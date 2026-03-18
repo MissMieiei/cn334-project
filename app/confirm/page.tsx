@@ -9,10 +9,13 @@ export default function ConfirmPage() {
   const params = useSearchParams()
   const router = useRouter()
 
+
   const menuId = params.get("menuId")
   const qty = params.get("qty")
   const note = params.get("note")
   const total = params.get("total")
+  const ResId = params.get("res_id")
+  const canteenId = params.get("canteen")
 
   const [status, setStatus] = useState("loading")
 
@@ -20,9 +23,20 @@ export default function ConfirmPage() {
 
     async function sendOrder() {
 
-      const res = await fetch(
-        `/api/order?menuId=${menuId}&qty=${qty}&note=${note}&total=${total}`
-      )
+      const res = await fetch("/api/order", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          canteenId,
+          res_id: ResId,
+          menuId,
+          qty,
+          note,
+          total
+        })
+      })
 
       const data = await res.json()
 
