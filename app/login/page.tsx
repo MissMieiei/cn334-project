@@ -55,7 +55,7 @@ export default function LoginPage() {
 
         <button
           onClick={handleLogin}
-          className="w-full py-4 rounded-full bg-[#F0EEE9] font-semibold tracking-widest"
+          className="w-full py-4 text-black rounded-full bg-[#F0EEE9] font-semibold tracking-widest"
         >
           LOGIN
         </button>

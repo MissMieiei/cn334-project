@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="h-screen flex flex-col items-center justify-center gap-6 bg-[#F0EEE9]">
       
-      <h1 className="text-2xl font-semibold">Select Role</h1>
+      <h1 className="text-2xl font-semibold text-red-800">Select Role</h1>
       <button
         onClick={() => router.push("/canteens")}
         className="px-6 py-3 bg-gray-300 rounded-xl text-black"
