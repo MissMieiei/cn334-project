@@ -9,7 +9,7 @@ import RestaurantCard from "./components/RestaurantCard"
 export default function RestaurantPage() {
 
     const params = useSearchParams()
-    const canteenId = params.get("canteen")
+    const canteenId = params.get("canteen") ?? "rest-001"
     const router = useRouter()
     const filtered = restaurants.filter(
         (r) => r.canteenId === canteenId
@@ -69,6 +69,7 @@ export default function RestaurantPage() {
                         description={restaurant.description}
                         queue={restaurant.queue}
                         id={restaurant.id}
+                        canteenId={canteenId}
                     />
                 ))}
             </div>

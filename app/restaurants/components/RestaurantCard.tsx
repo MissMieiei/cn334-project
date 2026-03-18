@@ -1,26 +1,31 @@
 "use client"
 
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 
 interface Props {
     id: string
     name: string
     description: string
     queue: number
+    canteenId: string
 }
 
 export default function RestaurantCard({
     id,
     name,
     description,
-    queue
+    queue,
+    canteenId
 }: Props) {
 
+    console.log(canteenId)
+
+        const params = useSearchParams()
     const router = useRouter()
     const waitTime = queue * 3
 
     const showMenu = () => {
-        router.push(`/restaurant_menu?restaurant=${id}`)
+        router.push(`/restaurant_menu?canteen=${canteenId}&restaurant=${id}`)
     }
 
     return (
