@@ -71,7 +71,6 @@ function QueueContent() {
 
   const bgColor = cardStatus === "ready" ? "bg-[#701A27]" : "bg-[#ebebeb]"
 
-export default function QueuePage() {
   return (
     <main className={`min-h-screen flex flex-col transition-colors duration-700 ${bgColor}`}>
 
@@ -125,5 +124,4 @@ export default function QueuePage() {
     <Suspense fallback={<div className="min-h-screen bg-[#ebebeb]" />}>
       <QueueContent />
     </Suspense>
-  )
-}
+)}
