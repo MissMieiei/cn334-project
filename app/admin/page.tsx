@@ -87,11 +87,11 @@ export default function AdminPage() {
           {myOrders.map((o) => (
             <div
               key={o.id}
-              className="grid grid-cols-[80px_1fr_80px_150px] px-5 py-4 border-b border-gray-200 items-center text-gray-700"
+              className="grid grid-cols-[80px_1fr_80px_150px] px-5 py-4 border-b border-gray-200 items-center text-gray-700 text-sm"
             >
               <span>{o.id}</span>
               <span>{getMenuName(o.menuId)}</span>
-              <span>{o.quantity}</span>
+              <span className="ml-3">{o.quantity}</span>
 
               <select
                 value={o.status}
