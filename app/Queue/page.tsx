@@ -124,5 +124,4 @@ export default function QueuePage() {
     <Suspense fallback={<div className="min-h-screen bg-[#ebebeb]" />}>
       <QueueContent />
     </Suspense>
-  )
-}
+)}
